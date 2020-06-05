@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>Stencil Component Starter</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
 
-  <script type="module" src="/build/varhais-components.esm.js"></script>
-  <script nomodule src="/build/varhais-components.js"></script>
-
-</head>
-<body>
-
-  <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
-
-</body>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: #202020;
+      }
+    </style>
+    <script type="module" src="/build/varhais-components.esm.js"></script>
+    <script nomodule src="/build/varhais-components.js"></script>
+  </head>
+  <body>
+    <var-button size="XL">Action!</var-button>
+  </body>
 </html>

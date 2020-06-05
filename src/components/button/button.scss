@@ -1,0 +1,129 @@
+$animationLength: 0.08s;
+$transitionTiming: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+@keyframes mymove {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+:host {
+  display: inline-block;
+}
+
+.bg-dark {
+  background-color: #212121;
+}
+
+.color-white {
+  color: #fff;
+}
+
+.size-m {
+  font-size: 0.9rem;
+}
+
+.pad-m-y {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+.pad-l-x {
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+}
+
+
+button {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: relative;
+  border: none;
+
+  &:hover .anim {
+    &:nth-child(1):before, &:nth-child(3):before {
+      width: 100%;
+    }
+
+    &:nth-child(2):before, &:nth-child(4):before {
+      height: 100%;
+    }
+  }
+}
+
+.anim {
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: #b514b7;
+  }
+
+  &:nth-child(1), &:nth-child(3) {
+    height: 1px;
+    width: 100%;
+
+    &:before {
+      transition: width $animationLength $transitionTiming;
+      height: 1px;
+      width: 0;
+      z-index: 1;
+    }
+  }
+
+  &:nth-child(2), &:nth-child(4) {
+    width: 1px;
+    height: 100%;
+
+    &:before {
+      width: 1px;
+      height: 0%;
+      transition: height $animationLength $transitionTiming;
+    }
+  }
+
+  &:nth-child(1), &:nth-child(1):before {
+    top: 0;
+    left: 0;
+  }
+
+  &:nth-child(2) {
+    top: 0;
+    right: 0;
+
+    &:before {
+      transition-delay: $animationLength;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &:nth-child(3) {
+    bottom: 0;
+    right: 0;
+
+    &:before {
+      transition-delay: $animationLength * 2;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &:nth-child(4) {
+    bottom: 0;
+    left: 0;
+
+    &:before {
+      transition-delay: $animationLength * 3;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}

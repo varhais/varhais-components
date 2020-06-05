@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ButtonSize, } from "./components/button/intefaces";
 export namespace Components {
     interface MyComponent {
         /**
@@ -20,6 +21,9 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface VarButton {
+        "size": ButtonSize;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +32,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLVarButtonElement extends Components.VarButton, HTMLStencilElement {
+    }
+    var HTMLVarButtonElement: {
+        prototype: HTMLVarButtonElement;
+        new (): HTMLVarButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "var-button": HTMLVarButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +58,12 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface VarButton {
+        "size"?: ButtonSize;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "var-button": VarButton;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +71,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "var-button": LocalJSX.VarButton & JSXBase.HTMLAttributes<HTMLVarButtonElement>;
         }
     }
 }
