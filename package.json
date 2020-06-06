@@ -1,7 +1,12 @@
 {
-  "name": "varhais-components",
-  "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "name": "@varhais/components",
+  "version": "0.0.2",
+  "author": {
+    "name": "Timo Turkki",
+    "email": "timo.turkkı@gmail.com"
+  },
+  "repository": "https://github.com/varhais/varhais-components",
+  "description": "Varhais UI component library",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
@@ -30,5 +35,9 @@
     "jest-cli": "24.9.0",
     "puppeteer": "2.1.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "namee": "https://npm.pkg.github.com/"
+  }
 }
