@@ -1,6 +1,6 @@
 {
   "name": "@varhais/components",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "author": {
     "name": "Timo Turkki",
     "email": "timo.turkkı@gmail.com"
@@ -24,7 +24,8 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "deploy": "npm run build && npm publish"
   },
   "devDependencies": {
     "@stencil/core": "^1.12.2",

@@ -1,6 +1,4 @@
-$animationLength: 0.08s;
-$transitionTiming: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-$magenta: #b514b7;
+
 $black: #000000;
 $white: #ffffff;
 $grey-dark: #212121;
@@ -8,10 +6,6 @@ $padding-l: 1.4rem;
 $padding-s: 0.8rem;
 $font-size-m: 0.9rem;
 $box-shadow-dark: 0rem 0.2rem 0.3rem rgba($black, 0.8);
-
-:host {
-  display: inline-block;
-}
 
 button {
   cursor: pointer;
@@ -30,85 +24,4 @@ button {
   padding-right: $padding-l;
   padding-top: $padding-s;
   padding-bottom: $padding-s;
-
-  &:hover .anim {
-    &:nth-child(1):before, &:nth-child(3):before {
-      width: 100%;
-    }
-
-    &:nth-child(2):before, &:nth-child(4):before {
-      height: 100%;
-    }
-  }
-}
-
-.anim {
-  position: absolute;
-  background-color: $white;
-
-  &:before {
-    content: '';
-    position: absolute;
-    background-color: $magenta;
-  }
-
-  &:nth-child(1), &:nth-child(3) {
-    height: 1px;
-    width: 100%;
-
-    &:before {
-      transition: width $animationLength $transitionTiming;
-      height: 1px;
-      width: 0;
-    }
-  }
-
-  &:nth-child(2), &:nth-child(4) {
-    width: 1px;
-    height: 100%;
-
-    &:before {
-      width: 1px;
-      height: 0%;
-      transition: height $animationLength $transitionTiming;
-    }
-  }
-
-  &:nth-child(1), &:nth-child(1):before {
-    top: 0;
-    left: 0;
-  }
-
-  &:nth-child(2) {
-    top: 0;
-    right: 0;
-
-    &:before {
-      transition-delay: $animationLength;
-      top: 0;
-      right: 0;
-    }
-  }
-
-  &:nth-child(3) {
-    bottom: 0;
-    right: 0;
-
-    &:before {
-      transition-delay: $animationLength * 2;
-      bottom: 0;
-      right: 0;
-    }
-  }
-
-  &:nth-child(4) {
-    bottom: 0;
-    left: 0;
-
-    &:before {
-      transition-delay: $animationLength * 3;
-      bottom: 0;
-      left: 0;
-    }
-  }
 }

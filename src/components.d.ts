@@ -7,32 +7,24 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonSize, } from "./components/button/intefaces";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface VarAnimateBorder {
+        "hasBorder": boolean;
     }
     interface VarButton {
         "size": ButtonSize;
     }
     interface VarCard {
     }
+    interface VarSidenav {
+        "isOpen": boolean;
+    }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLVarAnimateBorderElement extends Components.VarAnimateBorder, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLVarAnimateBorderElement: {
+        prototype: HTMLVarAnimateBorderElement;
+        new (): HTMLVarAnimateBorderElement;
     };
     interface HTMLVarButtonElement extends Components.VarButton, HTMLStencilElement {
     }
@@ -46,45 +38,46 @@ declare global {
         prototype: HTMLVarCardElement;
         new (): HTMLVarCardElement;
     };
+    interface HTMLVarSidenavElement extends Components.VarSidenav, HTMLStencilElement {
+    }
+    var HTMLVarSidenavElement: {
+        prototype: HTMLVarSidenavElement;
+        new (): HTMLVarSidenavElement;
+    };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "var-animate-border": HTMLVarAnimateBorderElement;
         "var-button": HTMLVarButtonElement;
         "var-card": HTMLVarCardElement;
+        "var-sidenav": HTMLVarSidenavElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface VarAnimateBorder {
+        "hasBorder"?: boolean;
     }
     interface VarButton {
         "size"?: ButtonSize;
     }
     interface VarCard {
     }
+    interface VarSidenav {
+        "isOpen"?: boolean;
+    }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "var-animate-border": VarAnimateBorder;
         "var-button": VarButton;
         "var-card": VarCard;
+        "var-sidenav": VarSidenav;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "var-animate-border": LocalJSX.VarAnimateBorder & JSXBase.HTMLAttributes<HTMLVarAnimateBorderElement>;
             "var-button": LocalJSX.VarButton & JSXBase.HTMLAttributes<HTMLVarButtonElement>;
             "var-card": LocalJSX.VarCard & JSXBase.HTMLAttributes<HTMLVarCardElement>;
+            "var-sidenav": LocalJSX.VarSidenav & JSXBase.HTMLAttributes<HTMLVarSidenavElement>;
         }
     }
 }

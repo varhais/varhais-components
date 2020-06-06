@@ -1,0 +1,106 @@
+$animationLength: 0.08s;
+$transitionTiming: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+$magenta: #b514b7;
+$white: #ffffff;
+
+:host {
+  display: inline-block;
+}
+
+div {
+  position: relative;
+  display: inherit;
+
+  &:hover, &:focus {
+    outline: none;
+
+    span {
+      &:nth-of-type(1):before, &:nth-of-type(3):before {
+        width: 100%;
+      }
+
+      &:nth-of-type(2):before, &:nth-of-type(4):before {
+        height: 100%;
+      }
+    }
+  }
+}
+
+span {
+  position: absolute;
+  background-color: $white;
+  z-index: 1;
+
+  &:before {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    background-color: $magenta;
+  }
+
+  &:nth-of-type(1), &:nth-of-type(3) {
+    height: 1px;
+    width: 100%;
+
+    &:before {
+      transition: width $animationLength $transitionTiming;
+      height: 1px;
+      width: 0;
+    }
+  }
+
+  &:nth-of-type(2), &:nth-of-type(4) {
+    width: 1px;
+    height: 100%;
+
+    &:before {
+      width: 1px;
+      height: 0%;
+      transition: height $animationLength $transitionTiming;
+    }
+  }
+
+  &:nth-of-type(1), &:nth-of-type(1):before {
+    top: 0;
+    left: 0;
+  }
+
+  &:nth-of-type(2) {
+    top: 0;
+    right: 0;
+
+    &:before {
+      transition-delay: $animationLength;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &:nth-of-type(3) {
+    bottom: 0;
+    right: 0;
+
+    &:before {
+      transition-delay: $animationLength * 2;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &:nth-of-type(4) {
+    bottom: 0;
+    left: 0;
+
+    &:before {
+      transition-delay: $animationLength * 3;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+.no-border {
+  span {
+    background-color: transparent;
+  }
+}

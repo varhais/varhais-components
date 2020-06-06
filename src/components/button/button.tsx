@@ -11,14 +11,11 @@ export class Button {
 
   render() {
     return (
-      <button>
-        <span class="anim"></span>
-        <span class="anim"></span>
-        <span class="anim"></span>
-        <span class="anim"></span>
-
-        <slot />
-      </button>
+      <var-animate-border>
+        <button>
+            <slot />
+        </button>
+      </var-animate-border>
     )
   }
 }
