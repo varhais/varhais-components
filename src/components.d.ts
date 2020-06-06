@@ -24,6 +24,8 @@ export namespace Components {
     interface VarButton {
         "size": ButtonSize;
     }
+    interface VarCard {
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -38,9 +40,16 @@ declare global {
         prototype: HTMLVarButtonElement;
         new (): HTMLVarButtonElement;
     };
+    interface HTMLVarCardElement extends Components.VarCard, HTMLStencilElement {
+    }
+    var HTMLVarCardElement: {
+        prototype: HTMLVarCardElement;
+        new (): HTMLVarCardElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "var-button": HTMLVarButtonElement;
+        "var-card": HTMLVarCardElement;
     }
 }
 declare namespace LocalJSX {
@@ -61,9 +70,12 @@ declare namespace LocalJSX {
     interface VarButton {
         "size"?: ButtonSize;
     }
+    interface VarCard {
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "var-button": VarButton;
+        "var-card": VarCard;
     }
 }
 export { LocalJSX as JSX };
@@ -72,6 +84,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "var-button": LocalJSX.VarButton & JSXBase.HTMLAttributes<HTMLVarButtonElement>;
+            "var-card": LocalJSX.VarCard & JSXBase.HTMLAttributes<HTMLVarCardElement>;
         }
     }
 }

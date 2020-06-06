@@ -1,41 +1,17 @@
 $animationLength: 0.08s;
 $transitionTiming: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-@keyframes mymove {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
+$magenta: #b514b7;
+$black: #000000;
+$white: #ffffff;
+$grey-dark: #212121;
+$padding-l: 1.4rem;
+$padding-s: 0.8rem;
+$font-size-m: 0.9rem;
+$box-shadow-dark: 0rem 0.2rem 0.3rem rgba($black, 0.8);
 
 :host {
   display: inline-block;
 }
-
-.bg-dark {
-  background-color: #212121;
-}
-
-.color-white {
-  color: #fff;
-}
-
-.size-m {
-  font-size: 0.9rem;
-}
-
-.pad-m-y {
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
-}
-
-.pad-l-x {
-  padding-left: 1.2rem;
-  padding-right: 1.2rem;
-}
-
 
 button {
   cursor: pointer;
@@ -43,6 +19,17 @@ button {
   font-weight: 700;
   position: relative;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $box-shadow-dark;
+  background-color: $grey-dark;
+  color: $white;
+  font-size: $font-size-m;
+  padding-left: $padding-l;
+  padding-right: $padding-l;
+  padding-top: $padding-s;
+  padding-bottom: $padding-s;
 
   &:hover .anim {
     &:nth-child(1):before, &:nth-child(3):before {
@@ -57,13 +44,12 @@ button {
 
 .anim {
   position: absolute;
-  background-color: white;
-  z-index: 1;
+  background-color: $white;
 
   &:before {
     content: '';
     position: absolute;
-    background-color: #b514b7;
+    background-color: $magenta;
   }
 
   &:nth-child(1), &:nth-child(3) {
@@ -74,7 +60,6 @@ button {
       transition: width $animationLength $transitionTiming;
       height: 1px;
       width: 0;
-      z-index: 1;
     }
   }
 

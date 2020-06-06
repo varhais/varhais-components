@@ -11,7 +11,7 @@ export class Button {
 
   render() {
     return (
-      <button class="border pad-m-y pad-l-x size-m bg-dark color-white">
+      <button>
         <span class="anim"></span>
         <span class="anim"></span>
         <span class="anim"></span>
