@@ -1,12 +1,12 @@
 $black: #000000;
-$grey: #333333;
+$grey-medium: #333333;
 $padding-l: 1.4rem;
 $padding-s: 0.8rem;
 $box-shadow-medium: 0rem 0.2rem 0.3rem rgba($black, 0.5);
 
 :host {
   display: inline-block;
-  background-color: $grey;
+  background-color: $grey-medium;
   box-shadow: $box-shadow-medium;
   padding: $padding-l;
   border-radius: 2px;
