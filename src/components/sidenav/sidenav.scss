@@ -5,9 +5,10 @@ $grey-medium: #333333;
 $grey-dark: #212121;
 $black: #000000;
 $white: #ffffff;
-$transition-length: 0.4s;
+$transition-length: $animationLength * 4;
 $focus-color: #6294d2;
 $nav-size: 4rem;
+$box-shadow-dark: 0rem 0.2rem 0.3rem rgba($black, 0.8);
 
 .navbar {
   position: fixed;
@@ -15,7 +16,37 @@ $nav-size: 4rem;
   transition: width $transition-length ease;
   overflow: hidden;
   z-index: 5;
-  box-shadow: 0.3rem 0rem 0.3rem rgba($black, 0.4);
+  box-shadow: 0.3rem 0.3rem 0.3rem rgba($black, 0.4);
+  top: 0;
+  left: 0;
+  width: $nav-size;
+  height: 100vh;
+
+  &.is-open {
+    width: 16rem;
+
+    .link-text {
+      display: inline;
+    }
+
+    .logo svg {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &:not(.is-open) {
+    @media only screen and (max-width: 600px) {
+      height: auto;
+
+      .navbar-nav {
+        display: none;
+      }
+
+      .logo {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
 
 var-animate-border {
@@ -43,12 +74,13 @@ var-animate-border {
   height: $nav-size;
   color: $white;
   text-decoration: none;
-  transition: opacity $transition-length, background-color $transition-length;
+  transition: opacity $transition-length, background-color $transition-length, box-shadow $transition-length;
   opacity: 0.7;
 
   &:hover, &:focus {
     opacity: 1;
     background-color: $grey-dark;
+    box-shadow: $box-shadow-dark;
   }
 
   &:focus {
@@ -71,12 +103,8 @@ var-animate-border {
 .logo {
   border: none;
   padding: 0;
-  font-weight: bold;
-  text-transform: uppercase;
   margin-bottom: 1rem;
   background-color: $grey-dark;
-  font-size: 1.5rem;
-  letter-spacing: 0.3ch;
   width: 100%;
   cursor: pointer;
   color: $magenta;
@@ -85,51 +113,4 @@ var-animate-border {
 .logo svg {
   transform: rotate(0deg);
   transition: transform $transition-length;
-}
-.navbar.is-open .logo svg {
-  transform: rotate(-180deg);
-}
-
-/* Small screens */
-@media only screen and (max-width: 600px) {
-  .navbar {
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: $nav-size;
-  }
-
-  .logo {
-    display: none;
-  }
-
-  .navbar-nav {
-    flex-direction: row;
-  }
-
-  .nav-link {
-    justify-content: center;
-  }
-
-  main {
-    margin: 0;
-  }
-}
-
-/* Large screens */
-@media only screen and (min-width: 600px) {
-  .navbar {
-    top: 0;
-    left: 0;
-    width: $nav-size;
-    height: 100vh;
-  }
-
-  .navbar.is-open {
-    width: 16rem;
-  }
-
-  .navbar.is-open .link-text {
-    display: inline;
-  }
 }

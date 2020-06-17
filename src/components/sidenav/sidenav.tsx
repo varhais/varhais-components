@@ -70,7 +70,7 @@ export class Sidenav {
                     ></path>
                   </g>
                 </svg>
-                <span class="link-text">Cats</span>
+                <span class="link-text">Lorem</span>
               </a>
             </var-animate-border>
           </li>
@@ -101,7 +101,7 @@ export class Sidenav {
                     ></path>
                   </g>
                 </svg>
-                <span class="link-text">Aliens</span>
+                <span class="link-text">Lorem Ipsum</span>
               </a>
             </var-animate-border>
           </li>
@@ -132,7 +132,7 @@ export class Sidenav {
                     ></path>
                   </g>
                 </svg>
-                <span class="link-text">Space</span>
+                <span class="link-text">Ipsum</span>
               </a>
             </var-animate-border>
           </li>
@@ -163,7 +163,7 @@ export class Sidenav {
                     ></path>
                   </g>
                 </svg>
-                <span class="link-text">Shuttle</span>
+                <span class="link-text">Lorem</span>
               </a>
             </var-animate-border>
           </li>
